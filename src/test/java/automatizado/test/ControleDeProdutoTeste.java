@@ -2,6 +2,8 @@ package automatizado.test;
 
 import static org.junit.Assert.assertEquals;
 
+import java.util.concurrent.TimeUnit;
+
 import org.junit.BeforeClass;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
@@ -44,7 +46,8 @@ public class ControleDeProdutoTeste extends BaseTest{
         public void TC002_nãoDeveSerPossivelCadastrarUmProdutoSemPrencherTodosOsCampos(){
             controleProdutoPage.buttonAdicionar.click();
             
-              
+            
+             
             controleProdutoPage.cadastrarProduto("00001", "Martelo", 10, 59.9, "08/10/2021");
 
             // Aqui capturar a msg de erro

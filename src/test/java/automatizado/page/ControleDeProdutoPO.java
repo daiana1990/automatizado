@@ -1,6 +1,8 @@
 package automatizado.page;
 
 
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -51,6 +53,8 @@ public class ControleDeProdutoPO extends BasePO{
         Integer quantidade, 
         Double valor, 
         String data){
+
+            driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
        escrever(inputCodigo, codigo);
        escrever(inputNome, nome);
