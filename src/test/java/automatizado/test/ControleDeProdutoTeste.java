@@ -49,7 +49,7 @@ public class ControleDeProdutoTeste extends BaseTest{
 
         
             controleProdutoPage.buttonAdicionar.click();
-            controleProdutoPage.cadastrarProduto("00001", "Martelo", 10, 59.9, "2021-10-08");
+            controleProdutoPage.cadastrarProduto("00001", "Martelo", 10, 59.9, "08/10/2021");
 
             
             String mensagem = controleProdutoPage.spanMensagem.getText();

@@ -11,8 +11,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public abstract class  BasePO {
 
        /** 
-     * Metodo para aguardar o carregamento da pagina.
-     * @param elemento determina qual elemento o metodo devera aguardar para clicar. 
+ * Metodo para aguardar o carregamento da pagina.
+* @param elemento determina qual elemento o metodo devera aguardar para clicar. 
      */
     public void aguardarElementoFicarClicavel(WebElement elemento, Integer tempo) {
         WebDriverWait aguardar = new WebDriverWait(driver, tempo);
