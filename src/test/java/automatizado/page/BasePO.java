@@ -4,9 +4,20 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 
 public abstract class  BasePO {
+
+       /** 
+     * Metodo para aguardar o carregamento da pagina.
+     * @param elemento determina qual elemento o metodo devera aguardar para clicar. 
+     */
+    public void aguardarElementoFicarClicavel(WebElement elemento, Integer tempo) {
+        WebDriverWait aguardar = new WebDriverWait(driver, tempo);
+        aguardar.until(ExpectedConditions.elementToBeClickable(elemento));
+    }
 
     protected WebDriver driver;
 /**

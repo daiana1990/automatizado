@@ -31,25 +31,27 @@ public class ControleDeProdutoTeste extends BaseTest{
         public void TC001_deveAbrirModalParaCadastroAoClicarNoBotaoCriar(){
             controleProdutoPage.buttonAdicionar.click();  
             controleProdutoPage.buttonAdicionar.click(); 
-
+ 
+            // Aqui aguardo o modal abrir até 1000 segundo.
+            controleProdutoPage.aguardarElementoFicarClicavel(controleProdutoPage.tituloModal, 1000);
+ 
             String titulo = controleProdutoPage.tituloModal.getText();
-
+ 
             assertEquals("Produto", titulo);
-
+ 
             controleProdutoPage.buttonSair.click();
             controleProdutoPage.buttonSair.click();
             
         }
 
         @Test
-        public void TC002_nãoDeveSerPossivelCadastrarUmProdutoSemPrencherTodosOsCampos(){
-            controleProdutoPage.buttonAdicionar.click();
-            
-            
-             
-            controleProdutoPage.cadastrarProduto("00001", "Martelo", 10, 59.9, "08/10/2021");
+    public void TC002_nãoDeveSerPossivelCadastrarUmProdutoSemPrencherTodosOsCampos(){
 
-            // Aqui capturar a msg de erro
+        
+            controleProdutoPage.buttonAdicionar.click();
+            controleProdutoPage.cadastrarProduto("00001", "Martelo", 10, 59.9, "2021-10-08");
+
+            
             String mensagem = controleProdutoPage.spanMensagem.getText();
 
             assertEquals("Todos os campos são obrigatórios para o cadastro!", mensagem);
