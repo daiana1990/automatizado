@@ -2,7 +2,6 @@ package automatizado.test;
 
 import static org.junit.Assert.assertEquals;
 
-import java.util.concurrent.TimeUnit;
 
 import org.junit.BeforeClass;
 import org.junit.FixMethodOrder;
