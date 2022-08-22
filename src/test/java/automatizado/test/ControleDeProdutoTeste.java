@@ -8,6 +8,7 @@ import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
 
+import automatizado.builder.ProdutoBuilder;
 import automatizado.page.ControleDeProdutoPO;
 import automatizado.page.LoginPO;
 
@@ -45,16 +46,36 @@ public class ControleDeProdutoTeste extends BaseTest{
         }
 
         @Test
-    public void TC002_nãoDeveSerPossivelCadastrarUmProdutoSemPrencherTodosOsCampos(){
+        public void TC002_nãoDeveSerPossivelCadastrarUmProdutoSemPrencherTodosOsCampos(){
 
         
             controleProdutoPage.buttonAdicionar.click();
-            controleProdutoPage.cadastrarProduto("00001", "Martelo", 10, 59.9, "08/10/2021");
+            controleProdutoPage.buttonAdicionar.click();
+            controleProdutoPage.cadastrarProduto("00001", "Martelo", 10, 59.9, "03/11/2021");
 
             
             String mensagem = controleProdutoPage.spanMensagem.getText();
+           
 
             assertEquals("Todos os campos são obrigatórios para o cadastro!", mensagem);
 
         }
+
+  //      @Test
+ //       public void TC003_nãoDeveSerPossivelCadastrarUmProdutoSemPrencherTodosOsCampos(){
+    
+            
+  //          controleProdutoPage.buttonAdicionar.click();
+ //           controleProdutoPage.buttonAdicionar.click();
+
+  //          ProdutoBuilder produtoBuilder = new ProdutoBuilder();
+
+  //          controleProdutoPage.cadastrarProduto(produtoBuilder);
+    
+                
+ //           String mensagem = controleProdutoPage.spanMensagem.getText();
+    
+ //           assertEquals("Todos os campos são obrigatórios para o cadastro!", mensagem);
+    
+ //          }
 }

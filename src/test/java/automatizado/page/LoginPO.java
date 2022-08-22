@@ -6,6 +6,8 @@ import org.openqa.selenium.support.FindBy;
 
 public class LoginPO extends BasePO{
 
+        //#region Regiao dos WebElements
+
     @FindBy(id ="email")
     public WebElement inputEmail;
 
@@ -18,24 +20,29 @@ public class LoginPO extends BasePO{
     @FindBy(css ="form.form-login>div.alert>span")
     public WebElement spanMensagem;
 
-    /**
-     * Contrutor padrão para criação de uma nova instancia da pg de login
-     * @param driver Driver da pag de login
-     */
+        //#endregion Regiao dos WebElements
+
+        /**
+        * Contrutor padrão para criação de uma nova instancia da pg de login
+        * @param driver Driver da pag de login
+        */
     public LoginPO(WebDriver driver) {
         super(driver);
     }
 
-
+        /**
+        * Metodo que obtem a mensagem disparada na ela
+        * @return retorna texto da msg
+        */
     public String obterMensagem(){
         return this.spanMensagem.getText();
     }
 
-/**
- * Metodo que tenta executa a ação de logar no sistema.
- * @param email e-mail para tentativa de login.
- * @param senha e-mail para tentativa de login.
- */
+        /**
+        * Metodo que tenta executa a ação de logar no sistema.
+        * @param email e-mail para tentativa de login.
+        * @param senha e-mail para tentativa de login.
+        */
 
     public void executarAcaoDeLogar(String email, String senha){
         escrever(inputEmail, email);

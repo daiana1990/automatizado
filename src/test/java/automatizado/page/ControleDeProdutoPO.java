@@ -7,8 +7,11 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import automatizado.builder.ProdutoBuilder;
+
 public class ControleDeProdutoPO extends BasePO{
 
+        //#region WebElement capturados no inspecionar
 
     @FindBy(id = "btn-adicionar")
     public WebElement buttonAdicionar;
@@ -43,6 +46,8 @@ public class ControleDeProdutoPO extends BasePO{
     @FindBy(id = "mensagem")
     public WebElement spanMensagem;
 
+        //#endregion
+
     public ControleDeProdutoPO(WebDriver driver) {
         super(driver);
     }
@@ -60,7 +65,20 @@ public class ControleDeProdutoPO extends BasePO{
        escrever(inputNome, nome);
        escrever(inputQuantidade, quantidade.toString());
        escrever(inputValor, valor.toString());
-       escrever(inputData, data);
+       escrever(inputData, data.toString());
+
+        buttonSalvar.click();
+    }
+
+    public void cadastrarProduto(ProdutoBuilder produtoBuilder){
+
+            driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
+       escrever(inputCodigo, produtoBuilder.codigo);
+       escrever(inputNome, produtoBuilder.nome);
+       escrever(inputQuantidade, produtoBuilder.quantidade.toString());
+       escrever(inputValor, produtoBuilder.valor.toString());
+       escrever(inputData, produtoBuilder.data);
 
         buttonSalvar.click();
     }
